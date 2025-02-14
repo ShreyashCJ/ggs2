@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valentine's Day Card</title>
+  <!-- Handwriting font for a personal touch -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div id="app">
+    <!-- Page 1: Introduction with full-page floating hearts -->
+    <section id="page1" class="page active">
+      <!-- Emoji border container -->
+      <div class="emoji-border">
+        <div class="border-top"></div>
+        <div class="border-bottom"></div>
+        <div class="border-left"></div>
+        <div class="border-right"></div>
+      </div>
+      <!-- Floating hearts container (hearts are generated randomly by JS) -->
+      <div class="floating-hearts"></div>
+      <div class="content">
+        <h1>Happy Valentine's Day, Sudhi!</h1>
+        <p>Welcome to a journey of love and cherished memories.</p>
+        <button class="next-btn" data-next="2">Enter into my Heart</button>
+      </div>
+    </section>
+
+    <!-- Page 2: Memories with full-screen background image and top-aligned content -->
+    <section id="page2" class="page">
+      <!-- Emoji border container -->
+      <div class="emoji-border">
+        <div class="border-top"></div>
+        <div class="border-bottom"></div>
+        <div class="border-left"></div>
+        <div class="border-right"></div>
+      </div>
+      <div class="content">
+        <h2>To My Bestest Friend</h2>
+        <p class="fade-in">
+          Veryyy fast you've become a veryy integral part of my life. Talking to you makes me feel noticed and loved. Remember the day we first met? The smiles, the laughter, and the intimacy that started it all…
+        </p>
+        <p class="fade-in">
+          Every moment with you is a treasure —each memory of you makes me happy and hard 😘.
+        </p>
+        <button class="next-btn" data-next="3">Next</button>
+      </div>
+    </section>
+
+    <!-- Page 3: Collage with swipe/double‑click to reveal and white background -->
+    <section id="page3" class="page">
+      <!-- Emoji border container -->
+      <div class="emoji-border">
+        <div class="border-top"></div>
+        <div class="border-bottom"></div>
+        <div class="border-left"></div>
+        <div class="border-right"></div>
+      </div>
+      <div class="page3-content">
+        <div class="collage-container">
+          <!-- Images are stacked; only a small portion of each underlying image's TOP is visible -->
+          <img 
+            src="https://res.cloudinary.com/dzghopir9/image/upload/v1739521265/Vintage_Effect_Polaroid_1_1_ndaabq.png" 
+            alt="Collage Image 1" 
+            class="collage-img"/>
+          <img 
+            src="https://res.cloudinary.com/dzghopir9/image/upload/v1739521278/Vintage_Effect_Polaroid_2_cmsg7s.png" 
+            alt="Collage Image 2" 
+            class="collage-img"/>
+          <img 
+            src="https://res.cloudinary.com/dzghopir9/image/upload/v1739521307/Pet_Cat_Valentine_s_Day_Poster_in_Black_and_White_in_Polaroid_Style_1_wwm73l.png" 
+            alt="Collage Image 3" 
+            class="collage-img"/>
+          <img 
+            src="https://res.cloudinary.com/dzghopir9/image/upload/v1739521340/Black_Aesthetic_Photo_Collage_Birthday_Congratulations_Instagram_Story_1_lbjodr.png" 
+            alt="Collage Image 4" 
+            class="collage-img"/>
+        </div>
+        <!-- Initially hidden; when all images are dismissed, this appears centered -->
+        <button class="next-btn hidden" data-next="4">Proceed</button>
+      </div>
+    </section>
+
+    <!-- Page 4: Love Letter with full background image and white text -->
+    <section id="page4" class="page">
+      <!-- Emoji border container -->
+      <div class="emoji-border">
+        <div class="border-top"></div>
+        <div class="border-bottom"></div>
+        <div class="border-left"></div>
+        <div class="border-right"></div>
+      </div>
+      <div class="content">
+        <h2>My Heart's Confession</h2>
+        <p>
+          Dearest Sudhi baby,<br/><br/>
+          You are the only person that constantly makes me happy and confident.
+          There were maybe times that have made you feel unhappy because of me but always know that it was never and never will be on purpose.
+          I would never even think of hurting you everrrr, aaishappat!! 
+          Every beat of my heart echoes your name. Your love fills my soul with joy.
+          I want to spend every moment of my life standing beside you, holding your hand.
+          You are my inspiration, my happiness, and the love of my life.
+        </p>
+        <p class="final-question">Will you be my valentine?</p>
+        <div class="decision-buttons">
+          <button class="decision-btn yes-btn">YES</button>
+          <button class="decision-btn no-btn">NO</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
