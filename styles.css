@@ -1,1 +1,415 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+  background: #fff;
+  color: #b30000;
+  font-family: 'Dancing Script', cursive;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+/* App container */
+#app {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Page sections */
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.page.active {
+  opacity: 1;
+}
+
+/* Special styling for Page 2:
+   full-screen background image and top-aligned content */
+#page2 {
+  background-image: url("https://res.cloudinary.com/dzghopir9/image/upload/v1739469931/6744_nrizz4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-items: flex-start !important;
+}
+
+#page2 .content {
+  margin: 20px auto 0 auto;
+}
+
+/* Emoji border container covering the entire page */
+.emoji-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Top and bottom borders */
+.border-top,
+.border-bottom {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+.border-top {
+  top: 0;
+}
+
+.border-bottom {
+  bottom: 0;
+}
+
+/* Left and right borders */
+.border-left,
+.border-right {
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.border-left {
+  top: 0;
+  left: 0;
+}
+
+.border-right {
+  top: 0;
+  right: 0;
+}
+
+/* Floating hearts container (Page 1) */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Each heart (container for the float effect) */
+.floating-hearts .heart {
+  position: absolute;
+  bottom: -50px;
+  opacity: 0.7;
+  animation-name: float;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Inner heart element with the beating effect */
+.heart-icon {
+  display: inline-block;
+  animation: beat 1s ease-in-out infinite;
+}
+
+/* Float keyframes */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+/* Beat keyframes */
+@keyframes beat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Content container for pages */
+.content {
+  z-index: 200;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Fade-in effect for text */
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Final love letter question pulsing */
+.final-question {
+  font-size: 2rem;
+  color: #ff0000;
+  margin-top: 20px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Navigation button (general styling) */
+button.next-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff6666;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 300;
+}
+
+button.next-btn:hover {
+  background-color: #ff3333;
+}
+
+/* Utility class to hide elements */
+.hidden {
+  display: none;
+}
+
+/* -----------------------------------
+   PAGE 3: Collage with Swipe/Double‑Click-to-Reveal (Stacked Layout)
+   ----------------------------------- */
+#page3 {
+  background-color: white; /* White background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.page3-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Collage container */
+.collage-container {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  height: 70%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Collage images (stacked so only a small portion of each underlying image’s TOP is visible) */
+.collage-img {
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 0.7s ease, opacity 0.7s ease, transform 0.7s ease;
+  opacity: 1;
+}
+
+/* Initial stacking: each image offset from the top */
+.collage-img:nth-child(1) {
+  top: 0%;
+  z-index: 4;
+}
+.collage-img:nth-child(2) {
+  top: 5%;
+  z-index: 3;
+}
+.collage-img:nth-child(3) {
+  top: 10%;
+  z-index: 2;
+}
+.collage-img:nth-child(4) {
+  top: 15%;
+  z-index: 1;
+}
+
+/* When the image is to be centered (before sliding down) */
+.center {
+  top: 50%;
+}
+
+/* When the image is swiped out (slides down off-screen) */
+.swiped {
+  top: 100%;
+  opacity: 0;
+}
+
+/* -----------------------------------
+   Proceed Button Centering on Page 3
+   ----------------------------------- */
+#page3 .next-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 0;
+}
+
+/* -----------------------------------
+   PAGE 4: Full Background Image and White Text
+   ----------------------------------- */
+#page4 {
+  background: url("https://res.cloudinary.com/dzghopir9/image/upload/v1739532629/freepik__background__99151_g6xplh.png") no-repeat center center;
+  background-size: cover;
+}
+
+#page4 .content {
+  color: #fff;
+}
+
+#page4 .final-question {
+  color: #fff;
+}
+
+/* -----------------------------------
+   Decision Buttons on Page 4
+   ----------------------------------- */
+.decision-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.decision-btn {
+  padding: 10px 20px;
+  background-color: #ff6666;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.decision-btn:hover {
+  background-color: #ff3333;
+}
+
+/* -----------------------------------
+   Final Text Screen (replacing hearts)
+   ----------------------------------- */
+#final-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
+}
+
+.final-text {
+  animation: beat 1s ease-in-out infinite;
+  font-weight: bold;
+  font-family: 'Dancing Script', cursive;
+  color: #b30000;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* -----------------------------------
+   Confetti Animation
+   ----------------------------------- */
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.confetti {
+  position: absolute;
+  animation: confettiFall linear infinite;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* -----------------------------------
+   Yes Flood Screen
+   ----------------------------------- */
+#yes-flood-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
+}
+
+.flood-yes-btn {
+  padding: 10px 20px;
+  background-color: #ff6666;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.flood-yes-btn:hover {
+  background-color: #ff3333;
+}
 
